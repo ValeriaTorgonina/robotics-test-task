@@ -1,0 +1,65 @@
+.customStyles {
+    width: 180px;
+    font-size: 12px;
+    --styled-select-placeholder__color: #969393;
+    --styled-select__color: #525252;
+    --styled-select__background-color: #f8f8f8;
+    --styled-select__border-radius: 0;
+    --styled-select-control__border-color: transparent;
+    --styled-select-control__border-color--focused: transparent;
+    --styled-select-control__height: 30px;
+
+    --styled-select-input__height: 30px;
+   
+    --styled-select-menu-outer__margin: 0;
+    --styled-select-menu-outer__padding: 0;
+    --styled-select-menu__border-radius: 0;
+    --styled-select-menu-outer__border-radius: 0;
+    --styled-select-menu-outer__border-style: none;
+    --styled-select-menu-outer__box-shadow: none;
+    --styled-select-multi-value__font-size: 12px;
+
+    --styled-select-option__background-color: #efefef;
+   
+    --styled-select-option__color--focused: #525252;
+   
+    --styled-select-option__color--selected: #80bdd6;
+    --styled-select-option__background-color--selected: #efefef;
+    --styled-select-option__font-size: 9px;
+    --styled-select-option__padding: 10px;
+
+    --styled-select-menu__max-height: 180px;
+
+    --styled-select-arrow__color: #80bdd6;
+    --styled-select-arrow__size: 10;
+    --styled-select-no-results__font-size: 12px;
+
+    --styled-select-value__font-size: 12px;
+}
+
+.sc-kgoBCf {
+    box-sizing: border-box;
+    padding-left: 5px;
+    background-color: #efefef;
+}
+
+.sc-EHOje {
+    width: 168px;
+}
+
+.sc-EHOje::-webkit-scrollbar-track {
+    background-color: #efefef;
+} 
+
+.sc-EHOje::-webkit-scrollbar {
+    width: 5px;
+    border-left: 1px solid #dfdfdf;
+}
+
+.sc-EHOje::-webkit-scrollbar-thumb:vertical {
+    height: 10px;
+    background: #d5d5d5;
+    border-radius: 7px;
+}
+
+

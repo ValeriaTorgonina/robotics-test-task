@@ -1,8 +1,8 @@
 import React from 'react';
 import Select from 'react-styled-select';
 import { connect } from 'react-redux';
-import { changeYear } from '../state/actions';
-import './style.css';
+import { changeYear } from '../../state/actions';
+import './DropDownList.css';
 
 class DropDownList extends React.Component {
     changeYear(year) {
