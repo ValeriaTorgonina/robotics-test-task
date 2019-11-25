@@ -2,7 +2,7 @@ import React from 'react';
 import Select from 'react-styled-select';
 import { connect } from 'react-redux';
 import { changeYear } from '../../state/actions';
-import './DropDownList.css';
+import './style.css';
 
 class DropDownList extends React.Component {
     changeYear(year) {
@@ -10,17 +10,16 @@ class DropDownList extends React.Component {
     }
 
     getList() {
-        const options = this.props.years.map(item => {
+        return this.props.years.map(item => {
            return {value: item.year, label: item.year}
         })
-        return options
     }
 
     render() {
         return (
             <Select 
                 options={this.getList()} 
-                className='customStyles'
+                className='select-styles'
                 value={this.props.activeYear.year}
                 onChange={(event) => this.changeYear(event)}
             />
@@ -28,4 +27,4 @@ class DropDownList extends React.Component {
     }
 }
 
-export default connect(state => state.mainReducer)(DropDownList)
+export default connect(state => state.main)(DropDownList)

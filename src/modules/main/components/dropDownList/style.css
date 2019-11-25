@@ -1,4 +1,4 @@
-.customStyles {
+.select-styles {
     width: 180px;
     font-size: 12px;
     --styled-select-placeholder__color: #969393;
@@ -26,9 +26,9 @@
     --styled-select-option__color--selected: #80bdd6;
     --styled-select-option__background-color--selected: #efefef;
     --styled-select-option__font-size: 9px;
-    --styled-select-option__padding: 10px;
+    --styled-select-option__padding: 7px;
 
-    --styled-select-menu__max-height: 180px;
+    --styled-select-menu__max-height: 150px;
 
     --styled-select-arrow__color: #80bdd6;
     --styled-select-arrow__size: 10;
