@@ -61,27 +61,6 @@ export const mainState = {
 
 export const mainReducer = function(state = mainState, action) {
     switch(action.type) {
-        // case CHANGE_YEAR:
-        //     let lastActiveYear = state.years.find(item => item.isActive === true);
-        //     lastActiveYear = {...lastActiveYear, isActive: false};
-        //     let currentActiveYear = state.years.find(item => item.year === action.payload);
-        //     currentActiveYear = {...currentActiveYear, isActive: true};
-
-        //     const newYears = state.years.map(item => {
-        //         if(item.year === lastActiveYear.year) {
-        //             return lastActiveYear;
-        //         }
-        //         if(item.year === currentActiveYear.year) {
-        //             return currentActiveYear
-        //         }
-        //         else {
-        //             return item
-        //         }
-        //     })
-        //     let newState = {...state}
-        //     newState.years = newYears
-        //     return newState
-
         case CHANGE_YEAR:
             const newActiveYear = state.years.find(item => item.year === action.payload);
             let newState = {...state};
