@@ -2,58 +2,75 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { changeYear } from '../state/actions';
+import {CanvasApp} from '../../../canvas-part';
+import ShipIcon from '../../../images/ship-Icon.png';
 
-const Period = styled.button`
-    display: inline-block;
-    margin-right: 40px;
-    margin-bottom: 100px;
-    position: relative;
-    width: 22px;
-    height: 22px;
-    background-color: ${({active}) => active ? '#eb4f47;' : '#49a2c7'};
-    border-radius: 50%;
-    border: none;
-
-    :focus {
-        outline: none;
-    }
-
-    ::before {
-        content: '${({year}) => year}';
-        position: absolute;
-        bottom: -20px;
-        left: 50%;
-        padding: 2px 12px;
-        border-radius: 5px;
-        transform: translate(-50%, 100%);
-        ${({active}) => active ? 'color: white; background: #eb4f47;' : null}
-        line-height: 15px;
-    }
+const Canvas = styled.canvas`
+    display: block;
+    width: 100%;
+    max-width: 1250px;
+    margin: 70px auto;
+    margin-left: -30px;
+    height: auto;
 `
 
-const Canvas = styled.canvas``
-
 class ShipChart extends React.Component {
+    constructor(props) {
+        super(props);
+        this.canvasRef = React.createRef();
+        this.clickStorage = [];
+    }
+
+    componentDidMount() {
+        this.canvas = new CanvasApp({
+            imageUrl: ShipIcon,
+            canvasEl:  this.canvasRef.current,
+            years: this.props.years.map((item) => item.year)
+        });
+        this.canvas.run().then(() => {
+            this.canvas.onPeakClick((i, year) => this.changeYear(year))
+        })
+    }
+
+    componentWillUnmount() {
+        this.canvas.destroy()
+    }
 
     changeYear(year) {
-            this.props.dispatch(changeYear(year))
+        this.props.dispatch(changeYear(year));
+    }
+
+    async run() {
+        if (this.isRunning || !this.clickStorage.length) {
+            return
+        }
+
+        this.isRunning = true;
+        const i = this.clickStorage.shift();
+        
+        await this.canvas.setActive(i);
+
+        this.isRunning = false;
+        return this.run()
+    }
+
+    saveClick(i) {
+        if (this.canvas) {
+            this.clickStorage.push(i);
+            this.run()
+        }
+        
     }
 
     render() {
         const {years, activeYear} = this.props
+        const i = years.findIndex(item => item.year === activeYear.year)
+        this.saveClick(i);
+
         return (
-            <Canvas>
-                {years.map((item, i) => {
-                    return <Period 
-                        year={item.year} 
-                        key={i}
-                        active={item.year === activeYear.year ? true : false}
-                        onClick={() => this.changeYear(item.year)}
-                    />
-                })}
-            </Canvas>
+            <Canvas ref={this.canvasRef}/>
         )
     }
 }
 
-export default connect(state => state.mainReducer)(ShipChart)
+export default connect(state => state.main)(ShipChart)
