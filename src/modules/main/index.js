@@ -1,20 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import Card from './components/card';
-import DropDownList from './components/dropDownList/dropDownList';
+import DropDownList from './components/dropDownList';
 import { connect } from 'react-redux';
 import ShipChart from './components/shipChart';
 
 const Container = styled.div`
-    position: relative;
     max-width: 985px;
     margin: 0 auto;
-    margin-top: 70px;
-`
-const FlexContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: start;
+`
+const MainContainer = styled.div`
+    padding: 70px 0;
 `
 
 class ShipChartScreen extends React.Component {
@@ -22,8 +21,8 @@ class ShipChartScreen extends React.Component {
     render() {
         const {title, text, date} = this.props.activeYear
         return (
-            <Container>
-                <FlexContainer>
+            <MainContainer>
+                <Container>
                     <Card 
                         itIsHistory={false} 
                         title='Наша миссия' 
@@ -32,17 +31,19 @@ class ShipChartScreen extends React.Component {
                             банку перестроить свой  технологический'
                     />
                     <DropDownList/>
-                </FlexContainer>
+                </Container>
                 <ShipChart/>
+                <Container>
                 <Card 
                     itIsHistory={true} 
                     title={title}
                     text={text}
                     date={date}
                 />
-            </Container>
+                </Container>
+            </MainContainer>
         )
     }
 }
 
-export default connect( state => state.mainReducer)(ShipChartScreen)
+export default connect( state => state.main)(ShipChartScreen)

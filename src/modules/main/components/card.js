@@ -3,7 +3,7 @@ import React from 'react';
 
 const Container = styled.div`
     box-sizing: border-box;
-    padding: 22px 30px;
+    padding: 20px 30px;
     padding-right: 60px;
     text-align: left;
 
@@ -15,7 +15,7 @@ const Container = styled.div`
 const Title = styled.h2`
     font-size: 32px;
     margin-top: 0;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     color: ${({itIsHistory}) => itIsHistory ? '#505050' : '#eb4f47'};
 `
 
@@ -26,9 +26,10 @@ const Date = styled.span`
 `
 
 const Text = styled.p`
+    margin: 10px 0;
     font-size: 14px;
     color: #505050;
-    line-height: 27px;
+    line-height: 25px;
 `
 
 class Card extends React.Component {
