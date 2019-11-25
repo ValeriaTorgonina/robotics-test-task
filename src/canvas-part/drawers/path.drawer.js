@@ -1,5 +1,3 @@
-import { Canvas } from '../services/canvas';
-import { ShapeService } from '../services/shape.service';
 import { repeat } from '../utils/animate';
 
 export class PathDrawer {

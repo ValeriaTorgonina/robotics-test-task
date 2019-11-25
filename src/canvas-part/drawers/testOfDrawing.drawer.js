@@ -1,4 +1,3 @@
-import { ShapeService } from '../services/shape.service';
 import { COLORS } from '../configs/colors';
 
 export class TestOfDrawingDrawer {

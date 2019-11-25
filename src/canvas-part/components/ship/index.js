@@ -1,4 +1,3 @@
-import { ShapeService } from '../../services/shape.service';
 import { COLORS } from '../../configs/colors';
 import { repeat } from '../../utils/animate';
 import { MotionComputer } from './helpers/motion.computer';

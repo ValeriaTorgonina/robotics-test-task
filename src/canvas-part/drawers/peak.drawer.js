@@ -1,10 +1,8 @@
-import { ShapeService } from '../services/shape.service';
 import { animate } from '../utils/animate';
 import { COLORS } from '../configs/colors';
 import { HoverService } from '../services/hover.service';
 import { mainOpts } from '../configs/main';
 import { linear, easeInOutQuint, easeInCubic } from '../utils/timing';
-import { ClickService } from '../services/click.service';
 
 export class PeakDrawer {
   peakRadius = 20;
